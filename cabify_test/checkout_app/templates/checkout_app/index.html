@@ -1,0 +1,8 @@
+<h2>Welcome to Cabify's shop!</h2>
+{% if basket_id %}
+	<a href="{% url 'basket_detail' basket_id %}">Go to your basket!</a>
+{% else %}
+	<a href="{% url 'create_basket' %}">Create a new basket</a>
+{% endif %}
+<br>
+<a href="{% url 'products' %}">Buy something now!</a>

@@ -1,0 +1,8 @@
+<h2>Products</h2>
+<form action="{% url 'products' %}" method="post">
+	{% csrf_token %}
+	{{ form }}
+	<br>
+	<input type="submit" value="Buy!">
+</form>
+<a href="{% url 'basket_detail' basket_id %}">Back to your basket</a>

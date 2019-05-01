@@ -1,0 +1,20 @@
+<h1>Basket {{ basket.basket_id }}</h1>
+
+<ul>
+{% if items|length == 0 %}
+	<h4><i>There is no any article into the basket</i></h4>
+{% else %}
+	{% for product_name, quantity in items.items %}
+	    <li>{{ product_name }} ({{quantity}} items)</li>
+	{% endfor %}
+</ul>
+<h4>TOTAL (discount not applied): {{ price_no_disc|floatformat:2 }}$</h4>
+{% if price_with_disc %}	
+	<h4>TOTAL (after applied discount): {{ price_with_disc|floatformat:2 }}$</h4>
+	<h4>You will save: {{ diff|floatformat:2 }}$</h4>
+	{% endif %}
+{% endif %}
+
+<a href="{% url 'products' %}">Add items</a>
+<br>
+<a href="{% url 'remove_basket' basket.basket_id %}">Remove basket?</a>
